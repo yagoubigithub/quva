@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import React, {useEffect} from 'react'
 import './App.css';
-
+import TaskBar from './components/TaskBar'
 function App() {
+  useEffect(() => {
+    
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <TaskBar />
+    <webview id="foo" src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh - 35px)" , marginTop : 35}} ></webview>
+
     </div>
   );
 }
