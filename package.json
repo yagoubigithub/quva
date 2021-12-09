@@ -15,6 +15,9 @@
         "nsis"
       ]
     },
+    "mac": {
+      "icon": "public/logo.png"
+    },
     "nsis": {
       "oneClick": false,
       "perMachine": false,
