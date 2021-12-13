@@ -9,11 +9,21 @@ import FilterNoneIcon from '@material-ui/icons/FilterNone';
 const electron = window.require("electron");
     const { ipcRenderer } = electron;
 
+    
 export default class TaskBar extends Component {
   state = {
     isFullScreen : true,
     screenIcon : <FilterNoneIcon />
   };
+  componentDidMount (){
+    const drag = window.require('electron-drag')
+    if (!drag.supported) {
+      document.querySelector('#element').style['-webkit-app-region'] = 'drag'
+  }
+
+const clear = drag('#element')
+clear()
+  }
 
   close = () => {
     ipcRenderer.send("closeWindow");
@@ -44,6 +54,7 @@ export default class TaskBar extends Component {
           left : 0,
           right : 0
         }}
+        id="element"
       >
         <nav>
           <button

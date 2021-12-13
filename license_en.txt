@@ -1,1 +1,24 @@
-SOFTWARE LICENSE AGREEMENT
+==================================
+
+    Software Licence Agreement
+
+==================================
+
+THE LICENSED SOFTWARE IS LICENSED (NOT SOLD). BY OPENING THE PACKAGE CONTAINING THE LICENSED SOFTWARE, AND/OR BY USING THE LICENSED SOFTWARE YOU ARE ACCEPTING AND AGREEING TO THE TERMS OF THIS END USER LICENSE AGREEMENT (HEREAFTER “AGREEMENT” OR “EULA”). IF YOU ARE NOT WILLING TO BE BOUND BY THE TERMS OF THIS LICENSE AGREEMENT, YOU SHOULD PROMPTLY RETURN THE LICENSED SOFTWARE TOGETHER WITH PROOF OF PURCHASE TO YOUR VENDOR FOR A FULL REFUND. THIS LICENSE AGREEMENT REPRESENTS THE ENTIRE AGREEMENT BETWEEN YOU ("LICENSEE") AND QUVA LLP ("LICENSOR"), AND IT SUPERSEDES ANY PRIOR PROPOSAL, REPRESENTATION, OR UNDERSTANDING BETWEEN THE PARTIES IN RELATION TO THE SUBJECT MATTER OF THIS LICENSE AGREEMENT. BY INSTALLING AND/OR USING THE LICENSED SOFTWARE, YOU AGREE TO ABIDE BY ALL OF THE TERMS AND CONDITIONS STATED OR REFERENCED UNDER THIS EULA. IF YOU DO NOT AGREE TO ABIDE BY THESE TERMS AND CONDITIONS, DO NOT INSTALL OR USE THE LICENSED SOFTWARE.YOU MUST ACCEPT AND ABIDE BY THESE EULA TERMS AND CONDITIONS TO USE THE LICENSED SOFTWARE. ANY CHANGES, ADDITIONS OR DELETIONS BY YOU TO THESE TERMS AND CONDITIONS WILL NOT BE ACCEPTED BY QUVA LLP AND WILL NOT BE PART OF THIS EULA.
+
+
+
+Licence
+1. Under this Agreement the Vendor grants to the Licensee a non-exclusive and non-transferable licence to the user to use Quva .
+
+2. Quva includes the executable computer programs and any related printed, electronic and online documentation and any other files that may accompany the product.
+
+3. Title, copyright, intellectual property rights and distribution rights of the Software remain exclusively with the Vendor. Intellectual property rights include the look and feel of the Software. This Agreement constitutes a licence for use only and is not in any way a transfer of ownership rights to the Software.
+
+4. The Software may be loaded onto no more than one computer. A single copy may be made for backup purposes only.
+
+5. The rights and obligations of this Agreement are personal rights granted to the Licensee only. The Licensee may not transfer or assign any of the rights or obligations granted under this Agreement to any other person or legal entity. The Licensee may not make available the Software for use by one or more third parties.
+
+6. The Software may not be modified, reverse-engineered, or de-compiled in any manner through current or future available technologies.
+
+7. Failure to comply with any of the terms under the Licence section will be considered a material breach of this Agreement.

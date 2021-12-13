@@ -2,7 +2,7 @@ const isDev = require("electron-is-dev");
 const path =  require('path')
 
 const { BrowserWindow, app,ipcMain,Menu ,MenuItem} = require("electron");
-const { electron } = require("process");
+
 
 
 
@@ -10,21 +10,27 @@ const { electron } = require("process");
 
 let mainWindow = new BrowserWindow({
     show :false,
-   frame : false,
+   //frame : false,
+   //useContentSize : true,
+  // transparent : true,
     webPreferences: {
       
-      webviewTag: true,
+      
       nodeIntegration : true,
       contextIsolation : false,
       enableRemoteModule: true,
+      webviewTag: true,
    
      
     },
+  
     icon: `${path.join(__dirname, "./logo512.png")}`,
     
   });
-  mainWindow.maximize()
+  
   mainWindow.setContentProtection(true)
+ mainWindow.maximize()
+  
   
     if( app.isPackaged){
 
@@ -69,7 +75,7 @@ mainWindow.on('close', (e)=>{
       }, false);
       });
 
-
+/*
 ipcMain.on("closeWindow" ,  (event, value)=>{
   app.quit();
 })
@@ -86,6 +92,7 @@ ipcMain.on("changeScreen",(event, value)=>{
   }
   
 })
+*/
 
 module.exports = mainWindow;
 
