@@ -1,22 +1,34 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import './App.css';
-import TaskBar from './components/TaskBar'
+
 import Snackbar from '@material-ui/core/Snackbar'
 import MuiAlert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
+
+//iconst
+
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-function App() {
 
+
+
+
+function App() {
+  
   const electron = window.require('electron')
 
   const remote = electron.remote;
   const [online,setOnline]  = useState(true)
+
+  const [taskbar,setTaskBar]  = useState(null) 
   useEffect(() => {
     setOnline(window.navigator.onLine)
-
+    const webview = document.getElementById("webview")
     
     window.addEventListener('offline', function(e) { 
       
@@ -33,16 +45,30 @@ function App() {
     
     });
     
+    setTaskBar(
+      <div style={{backgroundColor : "#f2f2f2"}}>
+  <IconButton disabled={!webview.canGoBack()}>
+  
+    <ArrowBackIosIcon />
+  </IconButton>
+  
+  <IconButton> 
+  
+    <ArrowForwardIosIcon />
+  </IconButton>
+    </div>
+    )
 
   }, [])
-
+  
   const handleClose = () => {
     setOnline(false);
   };
   return (
     <div className="App">
+    {taskbar}
    
-    <webview id="foo" src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }} ></webview>
+    <webview id="webview"  src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }} ></webview>
     <Snackbar
   open={!online}
   
