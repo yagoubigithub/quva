@@ -74,9 +74,16 @@ function App() {
 webview.goForward()
 
   }
+  const focusWebView =()=>{
+
+
+const webview = document.getElementById("webview")
+webview.focus()
+  }
+  const trueAsStr = 'true' 
   return (
     <div className="App">
-     <div style={{backgroundColor : "#f2f2f2", paddingLeft : "1rem"}}>
+     <div style={{backgroundColor : "#f2f2f2", paddingLeft : "1rem", maxHeight : "3rem"}} onClick={focusWebView}>
   <IconButton disabled={!cangoback} onClick={goBack}>
   
     <ArrowBackIosIcon />
@@ -88,7 +95,7 @@ webview.goForward()
   </IconButton>
     </div>
    
-    <webview id="webview"  src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }}  allowpopups></webview>
+    <webview id="webview"  src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh - 3rem )" }}  allowpopups={trueAsStr}></webview>
     <Snackbar
   open={!online}
   
