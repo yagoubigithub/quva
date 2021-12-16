@@ -22,7 +22,7 @@ function App() {
       
       setOnline(false)
       
-      console.log('You are offline, please check your internet connectionne'); 
+      console.log('You are offline, please check your internet connection'); 
     
     });
 
@@ -52,7 +52,7 @@ function App() {
 >
 
 <Alert  severity="error" sx={{ width: '100%' }}>
-You are offline, please check your internet connectionne
+You are offline, please check your internet connection
         </Alert>
 </Snackbar>
     </div>
