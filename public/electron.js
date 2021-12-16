@@ -4,11 +4,8 @@ const isDev = require("electron-is-dev");
 
 
 
-app.commandLine.appendSwitch('disable-features', 'IOSurfaceCapturer')
-//--disable-renderer-backgrounding
-app.commandLine.appendSwitch('--disable-renderer-backgrounding')
 
-
+app.commandLine.appendSwitch('disable-x-frame-options')
 
 
 
@@ -19,7 +16,7 @@ app.on("ready", () => {
 
  //  mainWindow.setMenu(null);
  mainWindow.webContents.on("dom-ready", ()=>{
-  mainWindow.setContentProtection(true)
+  //mainWindow.setContentProtection(true)
   mainWindow.show();
 
  })

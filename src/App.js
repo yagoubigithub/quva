@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './App.css';
-import TaskBar from './components/TaskBar'
+
 import Snackbar from '@material-ui/core/Snackbar'
 import MuiAlert from '@material-ui/lab/Alert';
 
@@ -15,6 +15,29 @@ function App() {
   const remote = electron.remote;
   const [online,setOnline]  = useState(true)
   useEffect(() => {
+    var webview = document.querySelector("webview")
+    const wrraper = document.getElementById("wrraper");
+   
+    const appdiv = document.getElementsByClassName("App")[0]
+
+    console.log(appdiv)
+    wrraper.addEventListener("mousedown", (evt)=>{
+      if (`${evt.which}${evt.button}` === "32") {
+        console.log("right click")
+       
+        return true
+      }
+      console.log(evt.isTrusted)
+      if (evt.isTrusted) {
+        console.log(evt)
+      const mouseEvent = new MouseEvent(evt.type, evt);
+      document.getElementById("container").dispatchEvent(mouseEvent);
+      
+    }
+      return true
+     
+    })
+    
     setOnline(window.navigator.onLine)
 
     
@@ -22,7 +45,7 @@ function App() {
       
       setOnline(false)
       
-      console.log('You are offline, please check your internet connectionne'); 
+      console.log('You are offline, please check your internet connection'); 
     
     });
 
@@ -33,16 +56,38 @@ function App() {
     
     });
     
-
+   
+    
+    webview.addEventListener("did-start-loading", function () {
+      webview.send(`loading`,"path")
+    })
+    webview.addEventListener('did-stop-loading', function(){
+      webview.openDevTools();
+     
+      console.log(__dirname)
+    })
+   
   }, [])
 
   const handleClose = () => {
     setOnline(false);
   };
+  const trueAsStr = 'true' 
+
+const app = remote.app
+const dirname = app.getAppPath()
+console.log(dirname)
   return (
     <div className="App">
+   <div id="wrraper"> </div>
+   <div id="container">
+
+   <webview id="foo" src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }} 
+    nodeintegrationinsubframes={trueAsStr}
+  //  preload={`file://${dirname}/public/test.js`}
    
-    <webview id="foo" src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }} ></webview>
+    disablewebsecurity={trueAsStr}
+   ></webview>
     <Snackbar
   open={!online}
   
@@ -52,9 +97,13 @@ function App() {
 >
 
 <Alert  severity="error" sx={{ width: '100%' }}>
-You are offline, please check your internet connectionne
+You are offline, please check your internet connection
         </Alert>
 </Snackbar>
+   </div>
+   
+  
+   
     </div>
   );
 }

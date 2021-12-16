@@ -1,6 +1,23 @@
 body,html {
   margin: 0;
-  user-select: none;
+  
  
 }
+.App{
+  width: 100vw;
+height: 100vh;
+background: transparent;
+border : 1px dashed red;
+}
 
+#wrraper{
+
+z-index: 99;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0,0,0,0.4);
+position: fixed;
+top : 0;
+left : 0
+
+}
