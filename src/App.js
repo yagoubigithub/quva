@@ -21,14 +21,18 @@ function Alert(props) {
 function App() {
   
   const electron = window.require('electron')
-
+ 
   const remote = electron.remote;
   const [online,setOnline]  = useState(true)
 
+  const [cangoback,setCanGoBack]  = useState(false)
+  const [cangoforward,setCanGoFoward]  = useState(false)
+
   const [taskbar,setTaskBar]  = useState(null) 
   useEffect(() => {
-    setOnline(window.navigator.onLine)
     const webview = document.getElementById("webview")
+    setOnline(window.navigator.onLine)
+  
     
     window.addEventListener('offline', function(e) { 
       
@@ -37,6 +41,7 @@ function App() {
       console.log('You are offline, please check your internet connection'); 
     
     });
+ 
 
     window.addEventListener('online', function(e) { 
       setOnline(true)
@@ -44,31 +49,46 @@ function App() {
       console.log('online'); 
     
     });
+   
     
-    setTaskBar(
-      <div style={{backgroundColor : "#f2f2f2"}}>
-  <IconButton disabled={!webview.canGoBack()}>
-  
-    <ArrowBackIosIcon />
-  </IconButton>
-  
-  <IconButton> 
-  
-    <ArrowForwardIosIcon />
-  </IconButton>
-    </div>
-    )
+    webview.addEventListener("did-finish-load", (e)=>{
+      console.log(webview.canGoBack(),webview.canGoForward())
+     setCanGoBack( webview.canGoBack())
+     setCanGoFoward(webview.canGoForward())
 
+     console.log("state",cangoback, cangoforward)
+    })
   }, [])
   
   const handleClose = () => {
     setOnline(false);
   };
+
+  const goBack = () => {
+    const webview = document.getElementById("webview")
+    webview.goBack()
+  }
+
+  const goForward = () => {
+    const webview = document.getElementById("webview")
+webview.goForward()
+
+  }
   return (
     <div className="App">
-    {taskbar}
+     <div style={{backgroundColor : "#f2f2f2", paddingLeft : "1rem"}}>
+  <IconButton disabled={!cangoback} onClick={goBack}>
+  
+    <ArrowBackIosIcon />
+  </IconButton>
+  
+  <IconButton disabled={!cangoforward}  onClick={goForward}> 
+  
+    <ArrowForwardIosIcon />
+  </IconButton>
+    </div>
    
-    <webview id="webview"  src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }} ></webview>
+    <webview id="webview"  src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh )" }}  allowpopups></webview>
     <Snackbar
   open={!online}
   
