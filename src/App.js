@@ -95,7 +95,7 @@ webview.focus()
   </IconButton>
     </div>
    
-    <webview id="webview"  src="https://courses.quvapro.com/" style={{width : "100vw" , height : "calc(100vh - 3rem )" }}  allowpopups={trueAsStr}></webview>
+    <webview id="webview"  src="https://www.quva.app" style={{width : "100vw" , height : "calc(100vh - 3rem )" }}  allowpopups={trueAsStr}></webview>
     <Snackbar
   open={!online}
   
