@@ -27,7 +27,7 @@ let mainWindow = new BrowserWindow({
     icon: `${path.join(__dirname, "./logo512.png")}`,
     
   });
- //mainWindow.setContentProtection(true)
+ mainWindow.setContentProtection(true)
  mainWindow.maximize()
  mainWindow.setMenu(null);
  mainWindow.removeMenu()

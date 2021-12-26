@@ -51,7 +51,9 @@ function App() {
     });
    
     
+    
     webview.addEventListener("did-finish-load", (e)=>{
+     
       console.log(webview.canGoBack(),webview.canGoForward())
      setCanGoBack( webview.canGoBack())
      setCanGoFoward(webview.canGoForward())
@@ -95,7 +97,7 @@ webview.focus()
   </IconButton>
     </div>
    
-    <webview id="webview"  src="https://www.quva.app" style={{width : "100vw" , height : "calc(100vh - 3rem )" }}  allowpopups={trueAsStr}></webview>
+    <webview id="webview"  src="http://www.quva.app" style={{width : "100vw" , height : "calc(100vh - 3rem )" }}  allowpopups={trueAsStr} disablewebsecurity={trueAsStr}></webview>
     <Snackbar
   open={!online}
   
